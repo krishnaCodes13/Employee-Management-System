@@ -1,5 +1,7 @@
 package com.demo.application.Entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -12,6 +14,10 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private int age;
+	private String email;
+	private String address;
+	private LocalDate joiningDate;
+	private double basicSalary;
 	
 	
 	public int getEmployeeId() {
@@ -37,7 +43,32 @@ public class Employee {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public LocalDate getJoiningDate() {
+		return joiningDate;
+	}
+	public void setJoiningDate(LocalDate joiningDate) {
+		this.joiningDate = joiningDate;
+	}
+	public double getBasicSalary() {
+		return basicSalary;
+	}
+	public void setBasicSalary(double basicSalary) {
+		this.basicSalary = basicSalary;
 	} 
+	
 	
 	
 

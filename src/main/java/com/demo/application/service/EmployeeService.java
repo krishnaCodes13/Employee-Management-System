@@ -13,8 +13,11 @@ import com.demo.application.repository.EmployeeRepository;
 @Service
 public class EmployeeService {
 	
-	@Autowired
 	private EmployeeRepository employeeRepo;
+	
+	public EmployeeService(EmployeeRepository repo) {
+		this.employeeRepo=repo;
+	}
 	
 	public void setEmployee(Employee employee ) {
 		employeeRepo.save(employee);
