@@ -38,4 +38,12 @@ public class EmployeeService {
 	public List<Employee> getEmployeeByFirstName(String FirstName){
 		return employeeRepo.findByFirstName(FirstName);
 	}
+	
+	public long getCount() {
+		return employeeRepo.count();
+	}
+
+	public void updateData(Employee employee) {
+		employeeRepo.save(employee);
+	}
 }

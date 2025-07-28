@@ -1,17 +1,24 @@
 package com.demo.application.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table
 public class Department {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int departmentId;
+	
+	@NotNull
 	private String departmentName;
 	private String location;
+	@NotNull
 	private String headOfDepartment;
 	
 	
