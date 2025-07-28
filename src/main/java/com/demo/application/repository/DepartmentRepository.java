@@ -17,4 +17,11 @@ public interface DepartmentRepository extends JpaRepository<Department, Integer>
 
 	public void deleteByDepartmentName(String departmentName);
 
+	public Department findByDepartmentName(String name);
+
+	public List<DepartmentNameDTO> getDepartmentNameByheadOfDepartment(String name);
+
+	public List<Department> findDepartmentNameByLocation(String name);
+
+
 }

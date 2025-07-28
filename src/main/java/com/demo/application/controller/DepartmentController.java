@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.application.DTO.DepartmentNameDTO;
 import com.demo.application.Entity.Department;
-import com.demo.application.Entity.Employee;
 import com.demo.application.service.DepartmentService;
 
 @RestController
@@ -63,10 +61,41 @@ public class DepartmentController {
 		departmentService.deleteDepartment(departmentId);
 	}
 	
+	//delete department by name
 	@DeleteMapping("DeleteDepartmentByName")
 	public void deleteDepartmentByName(@RequestParam String departmentName) {
 		departmentService.deleteDepartment(departmentName);
 	}
+
+	//update department by id
+	@PutMapping("/updateName")
+	public void updateName(@RequestParam int id, @RequestParam String name) {
+		departmentService.updateName(id, name);
+	}
 	
+	//update location by departmentname
+	@PutMapping("/updateLocation")
+	public void updateLocationByName(@RequestParam String name, @RequestParam String newLocation) {
+		departmentService.updateLocation(name, newLocation);
+	}
+	
+	//get department by hod name
+	@GetMapping("/getDepatmentByHOD")
+	public List<DepartmentNameDTO> getDepartmentByHOD(@RequestParam String name){
+		return departmentService.getDepartmentByHOD(name);
+	}
+	
+	//department by location
+	@GetMapping("/DepartmentCountByLocation")
+	public int departmentByLocation(@RequestParam String name) {
+		return departmentService.departmentCount(name);
+	}
+	
+	//transfer HOD from one to another department
+	@PutMapping("/transferHOD")
+	public void transferHOD(@RequestParam int fromDepartmentId, @RequestParam int toDepartmentId) {
+		departmentService.transfer(fromDepartmentId, toDepartmentId);
+	}
+	                         
 	
 }
